@@ -255,6 +255,11 @@ CAnimBlendAssociation * pThis,
 CAnimBlendStaticAssociation& StaticAssociationByReference
 );
 
+typedef void *(__cdecl *  hNEW_OPERATOR_CAnimBlendAssociation)
+(
+	size_t a1
+);
+
 
 char * __cdecl NEW_AddAnimAssocDefinition
 (

@@ -47,6 +47,8 @@ extern hCAnimBlendAssociation_Start         CAnimBlendAssociation_Start  ;
 extern hUncompressAnimation                 UncompressAnimation;
 extern hCAnimBlendAssociation_Constructor_staticAssocRef OLD_CAnimBlendAssociation_Constructor_staticAssocRef ;
 
+hNEW_OPERATOR_CAnimBlendAssociation OLD_NEW_OPERATOR_CAnimBlendAssociation = (hNEW_OPERATOR_CAnimBlendAssociation)0x082119A;
+
 CAnimBlendAssociation *__cdecl CustomAddAnimation (int pClump, CAnimBlendStaticAssociation & CustomAnimStaticAssoc);
 CAnimBlendAssociation * __cdecl CustomAddAnimationAndSync (int pClump, CAnimBlendAssociation * pAnimAssocToSyncWith, CAnimBlendStaticAssociation & CustomAnimStaticAssoc);
 
@@ -100,7 +102,7 @@ CAnimBlendAssociation *__cdecl CustomAddAnimation(int pClump, CAnimBlendStaticAs
   //pAnimAssoc = CAnimBlendAssocGroup_CopyAnimation((DWORD *) (*(DWORD*)0x00B4EA34) + 5 * GroupID, AnimID);
 
     UncompressAnimation ( CustomAnimStaticAssoc.m_pAnimBlendHier );
-    pAnimAssoc = (CAnimBlendAssociation *)malloc(sizeof(CAnimBlendAssociation));
+    pAnimAssoc = (CAnimBlendAssociation *)OLD_NEW_OPERATOR_CAnimBlendAssociation(sizeof(CAnimBlendAssociation));
     OLD_CAnimBlendAssociation_Constructor_staticAssocRef ( pAnimAssoc, CustomAnimStaticAssoc);
 
   //ofs << "Done calling  CAnimBlendAssocGroup_CopyAnimation " << std::endl;
@@ -163,7 +165,7 @@ CAnimBlendAssociation * __cdecl CustomAddAnimationAndSync(int pClump, CAnimBlend
   //pAnimAssoc = CAnimBlendAssocGroup_CopyAnimation((DWORD *) (*(DWORD*)0x00B4EA34) + 5 * GroupID, AnimID);
 
     UncompressAnimation ( CustomAnimStaticAssoc.m_pAnimBlendHier );
-    pAnimAssoc = (CAnimBlendAssociation *)malloc(sizeof(CAnimBlendAssociation));
+    pAnimAssoc = (CAnimBlendAssociation *)OLD_NEW_OPERATOR_CAnimBlendAssociation(sizeof(CAnimBlendAssociation));
     OLD_CAnimBlendAssociation_Constructor_staticAssocRef ( pAnimAssoc, CustomAnimStaticAssoc);
 
   pClumpData = *(int **)(   (*(DWORD*)0xB5F878) + pClump);
